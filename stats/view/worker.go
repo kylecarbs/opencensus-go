@@ -31,7 +31,8 @@ import (
 
 func init() {
 	defaultWorker = NewMeter().(*worker)
-	go defaultWorker.start()
+	// We don't need this. It just adds a leak to our tests.
+	// go defaultWorker.start()
 	internal.DefaultRecorder = record
 	internal.MeasurementRecorder = recordMeasurement
 }
